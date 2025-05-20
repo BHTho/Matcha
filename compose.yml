@@ -1,0 +1,22 @@
+networks:
+  frontend_net:
+    driver: bridge
+  backend_net:
+    driver: bridge
+    internal: false
+  monitoring_net:
+    driver: bridge
+
+services:
+  backend:
+    container_name: backend
+    build:
+      context: ./server
+      dockerfile: dockerfile
+    image: backend
+    expose:
+      - 8000
+    ports:
+      - "8000:8000"
+    networks:
+      - backend_net
