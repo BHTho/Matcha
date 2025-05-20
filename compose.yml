@@ -9,14 +9,10 @@ networks:
 
 services:
   backend:
-    container_name: backend
-    build:
-      context: ./server
-      dockerfile: dockerfile
-    image: backend
+    build: ./server
     expose:
       - 8000
-    ports:
-      - "8000:8000"
+    #ports:
+    #  - "8000:8000"
     networks:
       - backend_net
