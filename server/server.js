@@ -1,5 +1,11 @@
-const ronin = require( 'ronin-server' )
-const mocks = require ( 'ronin-mocks' )
-const server = ronin.server()
-server.use('/', mocks.server( server.Router(), false, true))
-server.start()
+const express = require('express')
+const app = express()
+const port = 8000
+
+app.get('/', (req, res) => {
+    res.send("Hello World!")
+})
+
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`)
+})
