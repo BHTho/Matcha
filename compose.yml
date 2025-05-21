@@ -9,8 +9,9 @@ services:
     build: ./server
     expose:
       - 8000
-    #ports:
-    #  - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
     networks:
       - app_net
 
@@ -24,3 +25,17 @@ services:
       - app_net
     depends_on:
       - backend
+      
+  postgres:
+    image: postgres:17.5
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASS}
+    networks:
+      - app_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d postgres || exit 1 "]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
