@@ -1,9 +1,6 @@
 networks:
-  frontend_net:
+  app_net:
     driver: bridge
-  backend_net:
-    driver: bridge
-    internal: false
   monitoring_net:
     driver: bridge
 
@@ -15,4 +12,15 @@ services:
     #ports:
     #  - "8000:8000"
     networks:
-      - backend_net
+      - app_net
+
+  frontend:
+    build: ./client
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://backend:8000
+    networks:
+      - app_net
+    depends_on:
+      - backend
