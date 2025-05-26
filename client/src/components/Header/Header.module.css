@@ -1,0 +1,22 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    height: 7rem;
+    justify-content: space-around;
+    Margin: 0 2rem 0 2rem;
+}
+
+img {
+    height: 4rem;
+}
+
+.Header > span {
+    text-align: center;
+    align-content: center;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.Header span:nth-child(1) {
+    flex-basis: 25%;
+}
