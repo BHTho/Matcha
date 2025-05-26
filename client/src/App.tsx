@@ -2,6 +2,7 @@
 import './App.css'
 import {useState, useEffect} from 'react';
 import Header from './components/Header/Header';
+import Landing from './components/Landing/Landing';
 
 function App() {
 //  const [message, setMessage] = useState<string | null>(null);
@@ -15,11 +16,7 @@ function App() {
 	return (
 	<div className="flex flex-col h-screen">
 		<Header />
-		<div className="flex flex-col flex-grow">
-		<div className="flex justify-center items-center flex-grow">
-			body
-		</div>
-		</div>
+		<Landing />
 	</div>
 	);
 }
