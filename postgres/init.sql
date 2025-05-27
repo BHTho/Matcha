@@ -4,5 +4,5 @@ CREATE TABLE IF NOT EXISTS test (
 );
 
 INSERT INTO test (id, note)
-VALUES (1, "entry1")
+VALUES (1, 'entry1')
 ON CONFLICT (id) DO NOTHING;
