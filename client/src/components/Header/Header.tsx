@@ -6,21 +6,23 @@ function Header() {
     return (
         <nav className={styles.Header}>
             <ul>
-                <li>
+                <li className='headerImg'>
                     <NavLink to="/"><img src="MatchaLogo.svg" alt="matchalogo"/></NavLink>
                 </li>
-                <li>
-                    <NavLink to="/explore">Explore</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/messages">Messages</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/profile">Profile</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/settings">Settings</NavLink>
-                </li>
+                <div>
+                    <li>
+                        <NavLink to="/explore">Explore</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/messages">Messages</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/profile">Profile</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/settings">Settings</NavLink>
+                    </li>
+                </div>
             </ul>
         </nav>
     )
