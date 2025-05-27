@@ -20,3 +20,12 @@ li {
 ul li:nth-child(1) {
     flex-basis: 25%;
 }
+
+li > a {
+    text-decoration: underline 0.15em rgba(255, 254, 254, 0.993);
+    transition: text-decoration-color 300ms;
+}
+
+li > a:hover {
+    text-decoration-color: rgb(0, 0, 0);
+}
