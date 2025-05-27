@@ -1,4 +1,4 @@
-import styles from './MessagePage.module.css';
+import styles from './Messages.module.css';
 
 
 function MessagePage() {
