@@ -1,8 +1,13 @@
 // import { useState } from 'react'
 import './App.css'
-import {useState, useEffect} from 'react';
+// import {useState, useEffect} from 'react';
 import Header from './components/Header/Header';
-import Landing from './components/Landing/Landing';
+import Landing from './pages/Landing/Landing';
+import Explore from './pages/Explore/Explore';
+import MessagePage from './pages/Messages/Messages';
+import Profile from './pages/Profile/Profile';
+import Settings from './pages/Settings/Settings';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 //  const [message, setMessage] = useState<string | null>(null);
@@ -16,7 +21,13 @@ function App() {
 	return (
 	<div className="flex flex-col h-screen">
 		<Header />
-		<Landing />
+		<Routes>
+			<Route path="/" element={<Landing />}/>
+			<Route path="/explore" element={<Explore />}/>
+			<Route path="/messages" element={<MessagePage />}/>
+			<Route path="/profile" element={<Profile />}/>
+			<Route path="/settings" element={<Settings />}/>
+		</Routes>
 	</div>
 	);
 }
