@@ -1,13 +1,16 @@
 import styles from './Explore.module.css';
 import ProfileCard from '../../components/profileCard/ProfileCard';
+import heartIcon from '../../assets/heart.svg';
+import crossIcon from '../../assets/cross.svg';
+import bazz from '../../assets/bazza.png';
 
 function Explore() {
     return (
         <div className={styles.ExplorePage}>
-            <ProfileCard imgPath='src/assets/bazza.png' />
+            <ProfileCard imgPath={bazz}/>
             <div className={styles.decisionBar}>
-                <button><img src="src/assets/heart.svg" alt="loveIcon" /></button>
-                <button><img src="src/assets/cross.svg" alt="crossIcon" /></button>
+                <button><img src={heartIcon} alt="loveIcon" /></button>
+                <button><img src={crossIcon} alt="crossIcon" /></button>
             </div>
         </div>
     )
