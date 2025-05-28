@@ -5,12 +5,6 @@ ul {
     justify-content: space-around;
 }
 
-ul > div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
 img {
     height: 70px;
     min-width: 30px;
