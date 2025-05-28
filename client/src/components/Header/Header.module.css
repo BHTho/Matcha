@@ -3,7 +3,6 @@ ul {
     flex-direction: row;
     height: 7rem;
     justify-content: space-around;
-    Margin: 0 1rem 0 1rem;
 }
 
 ul > div {
@@ -14,6 +13,8 @@ ul > div {
 
 img {
     height: 70px;
+    min-width: 30px;
+    object-fit: contain;
 }
 
 li {
