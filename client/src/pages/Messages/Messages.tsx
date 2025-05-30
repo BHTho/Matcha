@@ -1,5 +1,6 @@
 import styles from './Messages.module.css';
 import backIcon from '../../assets/back-button.svg';
+import { useState } from 'react';
 
 /*
 To do:
@@ -10,14 +11,29 @@ To do:
 */
 
 function MessagePage() {
+    const [chatVisibility, setChatVisibility] = useState("hideChat");
+    const [thumbsVisibility, setThumbsVisibility] = useState("showThumbs");
+
+    const changeStyle = () => {
+        if (chatVisibility === "hideChat") {
+            setThumbsVisibility("hideThumbs");
+            setChatVisibility("showChat");
+        } else {
+            setThumbsVisibility("showThumbs");
+            setChatVisibility("hideChat");
+        }
+    };
+
     return (
         <div className={styles.MessagePage}>
             <img className={styles.BackButton} src={backIcon} alt="backBtn" />
-            <div className={styles.MessageThumbnails}>
+            <div className={thumbsVisibility}>
                 <div className={styles.Thumbnail}>Example Thumbnail</div>
             </div>
-            <div className={styles.ChatWindow}>full chats here</div>
-            <div className={styles.ChatInput}>Chat Input here</div>
+            <div className={chatVisibility}>
+                <div className={styles.ChatHistory}>full chat here</div>
+                <div className={styles.ChatInput}>Chat Input here</div>
+            </div>
         </div>
     )
 }

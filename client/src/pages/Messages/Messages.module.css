@@ -9,6 +9,21 @@
   }
 }
 
+.showThumbs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px black solid;
+}
+.hideThumbs {display: none;}
+
+.showChat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.hideChat {display: none;}
+
 .MessagePage {
     position: relative;
     display: flex;
@@ -26,7 +41,6 @@
 
 .MessagePage > * {
     border: 1px black solid;
-    flex-grow: 1;
     height: 100%;
     width: 100%;
 }
@@ -42,24 +56,36 @@
 
 .Thumbnail {
     width: 100%;
-    height: 15%;
+    height: 10%;
+    border: 1px black solid;
+}
+
+.ChatHistory {
+    height: 90%;
+}
+
+.ChatInput {
+    height: 10%;
     border: 1px black solid;
 }
 
 @media (min-width: 768px) {
-    .MessagePage {
-        padding: 1%;
-    }
-    /* Gridbox styling */
-    .MessagePage {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: 1fr repeat(3, 2fr) 1fr; 
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-    }
-    .MessageThumbnails { grid-area: 1 / 1 / 6 / 2; }
-    .ChatWindow { grid-area: 1 / 2 / 5 / 6; }
-    .ChatInput { grid-area: 5 / 2 / 6 / 6; }
     .BackButton {display: None;}
+    .MessagePage {
+        margin: 1% 1%;
+        max-width: 98%;
+    }
+    .hideThumbs, .showThumbs {
+        display: flex;
+        height: 15%;
+        border: 1px black solid;
+        flex-direction: column;
+        flex-basis: 20%;
+    }
+    .hideChat, .showChat {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-basis: 80%;
+    }
 }
