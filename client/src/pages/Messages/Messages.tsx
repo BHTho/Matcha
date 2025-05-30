@@ -13,24 +13,35 @@ To do:
 function MessagePage() {
     const [chatVisibility, setChatVisibility] = useState("hideChat");
     const [thumbsVisibility, setThumbsVisibility] = useState("showThumbs");
+    const [buttonVisibility, setButtonVisibility] = useState("hideButton");
 
     const changeStyle = () => {
         if (chatVisibility === "hideChat") {
             setThumbsVisibility("hideThumbs");
             setChatVisibility("showChat");
+            setButtonVisibility("showButton");
         } else {
             setThumbsVisibility("showThumbs");
             setChatVisibility("hideChat");
+            setButtonVisibility("hideButton");
         }
     };
 
     return (
         <div className={styles.MessagePage}>
-            <img className={styles.BackButton} src={backIcon} alt="backBtn" />
-            <div className={thumbsVisibility}>
+            <img
+                className={styles[buttonVisibility]}
+                src={backIcon}
+                alt="backBtn"
+                onClick={changeStyle}
+            />
+            <div 
+                className={styles[thumbsVisibility]}
+                onClick={changeStyle}
+            >
                 <div className={styles.Thumbnail}>Example Thumbnail</div>
             </div>
-            <div className={chatVisibility}>
+            <div className={styles[chatVisibility]}>
                 <div className={styles.ChatHistory}>full chat here</div>
                 <div className={styles.ChatInput}>Chat Input here</div>
             </div>
