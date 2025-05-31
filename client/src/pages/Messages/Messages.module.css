@@ -1,6 +1,107 @@
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+.showButton {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    left: 10px;
+    text-align: center;
+}
+.hideButton {
+    display: None;
+}
+
+.showThumbs {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(104, 139, 104, 0.05);
+}
+.hideThumbs {display: none;}
+
+.showChat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    /*border: 1px black solid;*/
+}
+.hideChat {display: none;}
+
 .MessagePage {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.2);
+    margin: 1% 2.5%;
+    max-width: 95%;
+    border-radius: 20px;
+    opacity: 0;
+    animation: fadeIn 0.75s ease-in-out forwards;
+    padding: 2%;
+}
+
+.Thumbnail {
+    width: 100%;
+    height: 10%;
+    border: 1px #00000033 solid;
+    cursor: pointer;
+}
+
+.ChatFooter {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.ChatInput {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+@media (min-width: 768px) {
+    .hideButton, .showButton {
+        display: None;
+    }
+    .MessagePage {
+        margin: 1% 1%;
+        max-width: 98%;
+    }
+    .hideThumbs, .showThumbs {
+        display: flex;
+        height: 100%;
+        /*border: 1px black solid;*/
+        flex-direction: column;
+        flex-basis: 20%;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(104, 139, 104, 0.05);
+    }
+    .hideChat, .showChat {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /*border: 1px black solid;*/
+        flex-basis: 80%;
+        height: 100%;
+        width: 100%;
+    }
 }
