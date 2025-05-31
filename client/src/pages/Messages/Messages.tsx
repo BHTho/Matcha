@@ -10,8 +10,13 @@ function MessagePage() {
     const [chatVisibility, setChatVisibility] = useState("hideChat");
     const [thumbsVisibility, setThumbsVisibility] = useState("showThumbs");
     const [buttonVisibility, setButtonVisibility] = useState("hideButton");
+    const [selectedContactId, setSelectedContactId] = useState(dummyContacts[0].id);
 
-    const changeStyle = () => {
+    const changeStyle = (contactId?: string) => {
+        if (contactId) {
+            setSelectedContactId(contactId);
+        }
+
         if (chatVisibility === "hideChat") {
             setThumbsVisibility("hideThumbs");
             setChatVisibility("showChat");
@@ -23,24 +28,29 @@ function MessagePage() {
         }
     };
 
+    const currentChatLog = dummyChatLogs.find(log => log.id === selectedContactId);
+
     return (
         <div className={styles.MessagePage}>
             <img
                 className={styles[buttonVisibility]}
                 src={backIcon}
                 alt="backBtn"
-                onClick={changeStyle}
+                onClick={() => changeStyle()}
             />
             <div 
                 className={styles[thumbsVisibility]}
-                onClick={changeStyle}
+                onClick={() => changeStyle()}
             >
                 {dummyContacts.map((contact, index) => (
-                    <MsgThumbnail key={index} userData={contact}></MsgThumbnail>
+                    <div key={index} onClick={() => changeStyle(contact.id)} className={styles.Thumbnail}>
+                        <MsgThumbnail userData={contact}/>
+                    </div>
+                    
                 ))}
             </div>
             <div className={styles[chatVisibility]}>
-                <ChatHistory log={dummyChatLogs[0]}></ChatHistory>
+                {currentChatLog && <ChatHistory log={currentChatLog} />}
                 <div className={styles.ChatFooter}>
                     <input type="text" name="chatInput" className={styles.ChatInput} />
                 </div>
