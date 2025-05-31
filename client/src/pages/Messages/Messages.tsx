@@ -2,8 +2,9 @@ import styles from './Messages.module.css';
 import backIcon from '../../assets/back-button.svg';
 import { useState } from 'react';
 import { ChatLog, Message, ContactPreview } from '../../types/chat';
-import { dummyContacts, pers0ChatLog, pers1ChatLog } from '../../data/dummyChatData';
+import { dummyChatLogs, dummyContacts, pers0ChatLog, pers1ChatLog } from '../../data/dummyChatData';
 import MsgThumbnail from '../../components/MsgThumbnail/MsgThumbnail';
+import ChatHistory from '../../components/ChatHistory/ChatHistory';
 
 function MessagePage() {
     const [chatVisibility, setChatVisibility] = useState("hideChat");
@@ -39,8 +40,10 @@ function MessagePage() {
                 ))}
             </div>
             <div className={styles[chatVisibility]}>
-                <div className={styles.ChatHistory}>full chat here</div>
-                <div className={styles.ChatInput}>Chat Input here</div>
+                <ChatHistory log={dummyChatLogs[0]}></ChatHistory>
+                <div className={styles.ChatFooter}>
+                    <input type="text" name="chatInput" className={styles.ChatInput} />
+                </div>
             </div>
         </div>
     )
