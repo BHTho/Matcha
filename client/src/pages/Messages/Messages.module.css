@@ -25,10 +25,9 @@
 .showThumbs {
     display: flex;
     flex-direction: column;
-    /*justify-content: space-between;*/
-    border: 1px black solid;
     height: 100%;
     width: 100%;
+    background-color: rgba(104, 139, 104, 0.05);
 }
 .hideThumbs {display: none;}
 
@@ -38,7 +37,7 @@
     justify-content: space-between;
     height: 100%;
     width: 100%;
-    border: 1px black solid;
+    /*border: 1px black solid;*/
 }
 .hideChat {display: none;}
 
@@ -60,12 +59,14 @@
 .Thumbnail {
     width: 100%;
     height: 10%;
-    border: 1px black solid;
+    border: 1px rgba(0,0,0, 0.2) solid;
     display: flex;
     align-items: center;
     /*justify-content: space-between*/
     gap: 20px;
     padding-left: 4%;
+    background-color: white;
+    cursor: pointer;
 }
 
 .thumbnailMsg {
@@ -76,13 +77,19 @@
     font-weight: bold;
 }
 
-.ChatHistory {
-    height: 90%;
+.ChatFooter {
+    height: 10%;
+    /*border: 1px black solid;*/
+    display: flex;
+    justify-content: center;
 }
 
 .ChatInput {
-    height: 10%;
-    border: 1px black solid;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
 }
 
 @media (min-width: 768px) {
@@ -96,17 +103,18 @@
     .hideThumbs, .showThumbs {
         display: flex;
         height: 100%;
-        border: 1px black solid;
+        /*border: 1px black solid;*/
         flex-direction: column;
         flex-basis: 20%;
         height: 100%;
         width: 100%;
+        background-color: rgba(104, 139, 104, 0.05);
     }
     .hideChat, .showChat {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        border: 1px black solid;
+        /*border: 1px black solid;*/
         flex-basis: 80%;
         height: 100%;
         width: 100%;
