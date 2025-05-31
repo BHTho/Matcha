@@ -1,14 +1,9 @@
 import styles from './Messages.module.css';
 import backIcon from '../../assets/back-button.svg';
 import { useState } from 'react';
-
-/*
-To do:
-    leave format unchanged on large desktop screen.
-    On small/mobile screen have it so that thumbnail takes up 100% of screen
-    When tumbnail clicked, full chat takes up 100% of screen.
-    back button (only real on small screen) makes thumbail take up full screen
-*/
+import { ChatLog, Message, ContactPreview } from '../../types/chat';
+import { dummyContacts, pers0ChatLog, pers1ChatLog } from '../../data/dummyChatData';
+import MsgThumbnail from '../../components/MsgThumbnail/MsgThumbnail';
 
 function MessagePage() {
     const [chatVisibility, setChatVisibility] = useState("hideChat");
@@ -39,7 +34,9 @@ function MessagePage() {
                 className={styles[thumbsVisibility]}
                 onClick={changeStyle}
             >
-                <div className={styles.Thumbnail}>Example Thumbnail</div>
+                {dummyContacts.map((contact, index) => (
+                    <MsgThumbnail key={index} userData={contact}></MsgThumbnail>
+                ))}
             </div>
             <div className={styles[chatVisibility]}>
                 <div className={styles.ChatHistory}>full chat here</div>
