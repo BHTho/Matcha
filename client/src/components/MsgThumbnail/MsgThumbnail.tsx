@@ -1,4 +1,4 @@
-import styles from '../../pages/Messages/Messages.module.css';
+import styles from './MsgThumbnail.module.css';
 import { ContactPreview } from '../../types/chat';
 
 interface MsgThumbnailProps {
@@ -7,7 +7,7 @@ interface MsgThumbnailProps {
 
 const MsgThumbnail: React.FC<MsgThumbnailProps> = ({ userData }) => {
     return (
-        <div className={styles.Thumbnail}>
+        <div className={styles.InnerThumbnail}>
             <div className={styles.thumbnailName}>{userData.name}</div>
             <div className={styles.thumbnailMsg}>{userData.lastMessage}</div>
         </div>
