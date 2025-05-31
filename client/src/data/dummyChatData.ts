@@ -6,9 +6,9 @@ export const dummyContacts : ContactPreview[] = [
 ];
 
 export const pers0ChatLog: Message[] = [
+    {sender: "2", text: "I'm trying out a really long message here to see how the bubble reacts to long strings of text. Hopefully it increases the height gracefully but I'm not sure. Only time will tell.........................................", timestamp: 1519211109200},
     {sender: "0", text: "howdy", timestamp: 1519211809934},
     {sender: "2", text: "message0", timestamp: 1519211809935},
-    {sender: "2", text: "I'm trying out a really long message here to see how the bubble reacts to long strings of text. Hopefully it increases the height gracefully but I'm not sure. Only time will tell.........................................", timestamp: 1519211809938},
 ]
 
 export const pers1ChatLog: Message[] = [
