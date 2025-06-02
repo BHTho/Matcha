@@ -5,6 +5,7 @@ import { ChatLog, Message, ContactPreview } from '../../types/chat';
 import { dummyChatLogs, dummyContacts, pers0ChatLog, pers1ChatLog } from '../../data/dummyChatData';
 import MsgThumbnail from '../../components/MsgThumbnail/MsgThumbnail';
 import ChatHistory from '../../components/ChatHistory/ChatHistory';
+import PageParentDiv from '../../components/PageParentDiv/PageParentDiv';
 
 function MessagePage() {
     const [chatVisibility, setChatVisibility] = useState("hideChat");
@@ -31,7 +32,7 @@ function MessagePage() {
     const currentChatLog = dummyChatLogs.find(log => log.id === selectedContactId);
 
     return (
-        <div className={styles.MessagePage}>
+        <PageParentDiv>
             <img
                 className={styles[buttonVisibility]}
                 src={backIcon}
@@ -55,7 +56,7 @@ function MessagePage() {
                     <input type="text" name="chatInput" className={styles.ChatInput} />
                 </div>
             </div>
-        </div>
+        </PageParentDiv>
     )
 }
 

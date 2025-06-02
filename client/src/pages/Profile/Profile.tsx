@@ -1,10 +1,9 @@
 import styles from './Profile.module.css';
+import PageParentDiv from '../../components/PageParentDiv/PageParentDiv';
 
 function Profile() {
     return (
-        <div className={styles.ProfilePage}>
-            Profile Page
-        </div>
+        <PageParentDiv>Profile Page</PageParentDiv>
     )
 }
 
