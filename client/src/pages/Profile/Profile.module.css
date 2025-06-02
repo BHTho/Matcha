@@ -1,0 +1,26 @@
+.ProfileParent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.ProfileParent > * {
+    flex-grow: 1;
+    align-self: center;
+}
+
+.ProfileHeader {
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfileAvatar {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.ProfileBio {
+}
