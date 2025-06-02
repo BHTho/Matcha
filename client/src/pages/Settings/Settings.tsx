@@ -1,10 +1,11 @@
 import styles from './Settings.module.css';
+import PageParentDiv from '../../components/PageParentDiv/PageParentDiv';
 
 function Settings() {
     return (
-        <div className={styles.SettingsPage}>
+        <PageParentDiv>
             Settings Page
-        </div>
+        </PageParentDiv>
     )
 }
 
