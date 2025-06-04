@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
+    overflow: scroll;
 }
 
 .ProfileParent > * {
@@ -16,11 +17,43 @@
 }
 
 .ProfileAvatar {
+    align-self: center;
     object-fit: cover;
     border-radius: 50%;
     width: 100px;
     height: 100px;
+    margin-top: 15%;
 }
 
 .ProfileBio {
+    width: 300px;
+}
+
+.ProfileNameParent {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.online, .offline {
+    align-self: center;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-bottom: -2px;
+}
+
+.online {
+    background-color: rgb(0, 255, 0);
+}
+
+.offline {
+    background-color: grey;
+}
+
+.ProfileTags {
+    text-align: center;
 }
