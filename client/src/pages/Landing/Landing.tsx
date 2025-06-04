@@ -4,7 +4,9 @@ import LogIn from '../../components/LogIn/LogIn';
 import { useState } from 'react';
 
 function Landing() {
-
+    const [loaded, setLoaded] =useState(false);
+    
+    // Handle login
     const handleLogin = async (username: string, password: string) => {
         try {
             const res = await fetch('/api/login', {
@@ -21,8 +23,7 @@ function Landing() {
             alert('Error connecting to the server');
         }
     };
-
-    const [loaded, setLoaded] = useState(false);
+    
     return (
         <div className={styles.landingBody}>
             <img 
@@ -31,8 +32,8 @@ function Landing() {
             className={loaded ? styles.fadeIn : styles.hidden}
             onLoad={() => setLoaded(true)}
             />
-            {/* <div className={loaded ? styles.fadeIn : styles.hidden}>find your match</div> */}
             <LogIn />
+            <div className={loaded ? styles.fadeIn : styles.hidden}>find your match</div>
         </div>
     )
 }

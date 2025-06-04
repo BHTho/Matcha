@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS test (
+    id INT NOT NULL UNIQUE,
+    note VARCHAR(50)
+);
+
+INSERT INTO test (id, note)
+VALUES (1, 'entry1')
+ON CONFLICT (id) DO NOTHING;
