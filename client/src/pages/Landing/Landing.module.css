@@ -34,6 +34,15 @@
     animation: fadeIn 3s ease-in-out forwards;
 }
 
+.loginForm {
+    padding-right: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+} 
+
 @media (min-width: 768px) {
     .landingBody > img {
         max-width: 70%;

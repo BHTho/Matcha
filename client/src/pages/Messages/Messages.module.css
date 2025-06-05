@@ -47,8 +47,6 @@
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-<<<<<<< HEAD
-=======
     box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.2);
     margin: 1% 2.5%;
     max-width: 95%;
@@ -106,5 +104,4 @@
         height: 100%;
         width: 100%;
     }
->>>>>>> 26e20414c631676f80344d94893c3b42c576d94c
 }
