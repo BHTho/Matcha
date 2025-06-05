@@ -24,8 +24,8 @@ const dummyUser : UserProfile = {
     email: "dingus@42.fr",
     bio: "Howdy there I'm Dingus. I love C++ and I can't talk to women.",
     tags: ["#linux","#dev","#IloveLinusTorvalds","#IuseArchBTW"],
-    sexuality: "straight",
-    gender: "male",
+    sexuality: "Straight",
+    gender: "Male",
     accntCoords: ["48.8575", "2.3514"], // Paris Coords
     city: "Paris",
     status: "online",
@@ -41,6 +41,9 @@ function Profile() {
                         <h1 className={styles.ProfileName}>{dummyUser.firstName} | {dummyUser.city}</h1>
                         <div className={styles[dummyUser.status]}></div>
                     </div>
+                <div className={styles.ProfileAttr}>
+                    Gender: {dummyUser.gender} | Sexuality: {dummyUser.sexuality}
+                </div>
                 </div>
                 <div className={styles.ProfileBio}>
                     {dummyUser.bio}
