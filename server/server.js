@@ -5,22 +5,12 @@ const app = express(); //Assigning express to app variable
 const port = 8000;
 const cors = require('cors');
 const pg = require('pg');
-const db = require('./models'); // Importing the database models
-const User = require('./models/userModel');
-const userController = require('./controllers/userController');
-const authMiddleware = require('./middleware/userAuth');
+const usersdb = require('./models/users/usersdb') // Importing the database models
+
 
 //Set up environment variables
 dotenv.config();
 
-// Synchronize database models before using them
-db.sequelize.sync()
-  .then(() => {
-    console.log('Database models synchronized');
-  })
-  .catch((err) => {
-    console.error('Error synchronizing database models:', err);
-  });
 const {Pool} = pg;
 const pool = new Pool({
   user: process.env.POSTGRES_USER,

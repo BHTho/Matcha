@@ -1,42 +1,29 @@
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const db = require('../models');
-const User = db.users;
-
+const express = require("express");
+const jwt = require("jsonwebtoken");
+const usersdb = require("../models/users/usersdb");
+const bcrypt = require("bcrypt");
 //
 
-const saveUser = async(request, response, next) => {
-    try {
-        // Check if the username already exists
-        const usernameCheck = await User.findOne({
-            where: {
-                username: request.body.username
-            },
-        });
-        if (usernameCheck) {
-            return response.status(400).json({ message: 'Username already exists' });
-        }
-
-        // Check if the email already exists
-        const emailCheck =
-            await User.findOne({
-                where: {
-                    email: request.body.email
-                },
-            });
-        if (emailCheck) {
-            return response.status(400).json({ message: 'Email already exists' });
-        }
-        next();
-    } 
-    catch (error) {
-        console.error('Error checking database', error);
-        return response.status(500).json({ message: 'Internal server error' });
+const saveUser = async (request, response, next) => {
+  try {
+    const { username, email, password } = request.body;
+    if (!username || !email || !password) {
+      return response.status(400).json({ message: "All fields are required" });
     }
+    //Check if the user to be created already exists in the database
+    if (await usersdb.findUserByUsername(username)) {
+      return response.status(400).json({ message: "Username already exists" });
+    }
+    if (await usersdb.findUserByEmail(email)) {
+      return response.status(400).json({ message: "Email already exists" });
+    }
+    next(); //call login in usercotroller 
+  } catch (error) {
+    console.error("Error checking database", error);
+    return response.status(500).json({ message: "Internal server error" });
+  }
 };
 
-
-module.exports = 
-{
-    saveUser,
+module.exports = {
+  saveUser,
 };

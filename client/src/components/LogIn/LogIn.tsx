@@ -37,14 +37,18 @@ function LogIn() {
                 });
                 const data = await res.json();
                 if (res.ok) {
+                    setSuccess('Authentication successful!');
+                    await new Promise(resolve => setTimeout(resolve, 1000));
                     window.location.href = '/explore';
-                    setSuccess('Registration successful!');
+                    const data = await res.json();
+                    console.log(data.user);
+                    console.log(data.token);
                     
                 } else {
-                    setError(data.message || 'Registration failed. Please try again.');
+                    setError(data.message || 'Authentication failed. Please try again.');
                 }
             } catch (error) {
-                console.error('Error during registration:', error);
+                console.error('Error during login:', error);
                 setError('An error occurred. Please try again later.');
             }
         };
@@ -65,30 +69,7 @@ function LogIn() {
                         <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
                     </div>
                 </div>
-                <button
-                    className="sign"
-                    type="submit"
-                    // onClick={async (e) => {
-                    //     e.preventDefault();
-                    //     // const username = (document.getElementById('username') as HTMLInputElement)?.value;
-                    //     // const password = (document.getElementById('password') as HTMLInputElement)?.value; //A crypter
-                    //     try {
-                    //         const res = await fetch('/api/login', {
-                    //             method: 'POST',
-                    //             headers: { 'Content-Type': 'application/json' },
-                    //             body: JSON.stringify({ username, password }),
-                    //         });
-                    //         if (res.ok) {
-                    //             alert('Connexion successful');
-                    //             window.location.href = '/explore';
-                    //         } else {
-                    //             alert('Username or password incorrect');
-                    //         }
-                    //     } catch (err) {
-                    //         alert('Error connecting to the server');
-                    //     }
-                    // }}
-                >
+                <button className="sign" type="submit"  >
                     Log in
                 </button>
                 {error && <div style={{color: 'red'}}>{error}</div>}

@@ -44,7 +44,9 @@ function RegistrationForm() {
             });
             const data = await res.json();
             if (res.ok) {
-                setSuccess('Registration successful! Please log in.');
+                setSuccess('Registration successful!');
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                window.location.href = '/explore'; //Redirection to explore
                 setForm({
                     username: '',
                     email: '',

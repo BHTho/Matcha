@@ -25,7 +25,7 @@ status:
 	docker network ls
 
 #regle re : wipe les volumes et reconstruit tout
-re: down all
+re: down wipe-volumes all
 
 build:
 	@echo "🔧 Building the images..."
