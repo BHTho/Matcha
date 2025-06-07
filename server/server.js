@@ -28,7 +28,7 @@ app.use(cors({
 }));
 
 // Need to change this to be an API GET
-app.use('/api/images', express.static(path.join(__dirname, 'user_uploads')));
+//app.use('/api/images', express.static(path.join(__dirname, 'user_uploads')));
 
 app.get('/api/', (req, res) => {
     res.send("Hello World!")
