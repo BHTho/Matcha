@@ -3,6 +3,8 @@ const app = express();
 const port = 8000;
 const cors = require('cors');
 const pg = require('pg');
+const fs = require('fs');
+const path = require('path');
 
 const {Pool} = pg;
 const pool = new Pool({
@@ -24,6 +26,9 @@ app.use(cors({
     'http://frontend:5173'
   ],
 }));
+
+// Need to change this to be an API GET
+app.use('/api/images', express.static(path.join(__dirname, 'user_uploads')));
 
 app.get('/api/', (req, res) => {
     res.send("Hello World!")

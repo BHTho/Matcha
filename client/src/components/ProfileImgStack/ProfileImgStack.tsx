@@ -1,5 +1,6 @@
 import styles from './ProfileImgStack.module.css';
 import { UserProfile, dummyUser } from '../../data/profileData';
+import { use } from 'react';
 
 
 interface ProfileImgStackProps {    
@@ -8,8 +9,8 @@ interface ProfileImgStackProps {
 
 const ProfileImgStack: React.FC<ProfileImgStackProps> = ({ userData }) => {
     return (
-        <div>
-            {userData.firstName}
+        <div className={styles.ImageStackParent}>
+            <img className={styles.StackImg} src={`/api/images/user_${userData.id}/${userData.id}_0.jpg`} alt="" />
         </div>
     )
 }
