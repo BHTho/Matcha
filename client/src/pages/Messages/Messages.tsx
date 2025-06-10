@@ -7,6 +7,7 @@ import MsgThumbnail from '../../components/MsgThumbnail/MsgThumbnail';
 import ChatHistory from '../../components/ChatHistory/ChatHistory';
 
 function MessagePage() {
+    console.log('Message page loaded');
     const [chatVisibility, setChatVisibility] = useState("hideChat");
     const [thumbsVisibility, setThumbsVisibility] = useState("showThumbs");
     const [buttonVisibility, setButtonVisibility] = useState("hideButton");

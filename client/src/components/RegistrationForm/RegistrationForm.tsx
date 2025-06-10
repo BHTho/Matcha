@@ -36,6 +36,7 @@ function RegistrationForm({ onToggle }: RegistrationFormProps)
         try {
             const res = await fetch('/api/users/signup', {
                 method: 'POST',
+                credentials: 'include',
                 headers: { 
                     'Content-Type': 'application/json'
                 },

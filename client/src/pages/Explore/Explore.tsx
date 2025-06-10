@@ -5,6 +5,8 @@ import crossIcon from '../../assets/cross.svg';
 import bazz from '../../assets/bazza.png';
 
 function Explore() {
+
+    console.log('Explore page loaded');
     return (
         <div className={styles.ExplorePage}>
             <ProfileCard imgPath={bazz}/>

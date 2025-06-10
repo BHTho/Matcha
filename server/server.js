@@ -6,7 +6,7 @@ const port = 8000;
 const cors = require('cors');
 const pg = require('pg');
 const usersdb = require('./models/users/usersdb') // Importing the database models
-
+const userRoutes = require('./routes/userRoutes');
 
 //Set up environment variables
 dotenv.config();
@@ -42,7 +42,6 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
 app.use('/api/users', require('./routes/userRoutes')); // Importing user routes
 app.get('/api/', (req, res) => {
     res.send("Hello World!")

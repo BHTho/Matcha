@@ -52,9 +52,9 @@ const signup = async (req, res) => {
       const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
         expiresIn: 5 * 60,
       }); //Creating a JWT token for 5 minutes
-      res.cookie("token", token, { httpOnly: true, maxAge: 1 * 24 * 60 * 60 });
+      res.cookie("jwt", token, { httpOnly: true, maxAge: 1 * 24 * 60 * 60 });
       console.log("user", JSON.stringify(user, null, 2)); //Logging the user data to the console
-      console.log("token", token);
+      console.log("jwt", token);
       const userToReturn = {
         user_id: user.user_id,
         username: user.username,

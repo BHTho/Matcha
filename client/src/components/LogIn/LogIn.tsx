@@ -32,20 +32,21 @@ function LogIn({ onToggle }: LogInProps) {
             try {
                 const res = await fetch('/api/users/login', {
                     method: 'POST',
+                    credentials: 'include',
                     headers: { 
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         username: form.username,
                         password: form.password,
-                    }),
+                    },
+                ),
                 });
                 const data = await res.json();
                 if (res.ok) {
                     setSuccess('Authentication successful!');
                     await new Promise(resolve => setTimeout(resolve, 1000));
                     window.location.href = '/explore';
-                    const data = await res.json();
                     console.log(data.user);
                     console.log(data.token);
                     

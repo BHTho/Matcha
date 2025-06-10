@@ -4,6 +4,22 @@ const usersdb = require("../models/users/usersdb");
 const bcrypt = require("bcrypt");
 //
 
+//Function to check if the token is valid at each request qnd renew it if neede
+function checkToken(req, res, next) {
+  const token = req.cookies.token || req.cookies.jwt;
+  if (!token) 
+    return res.status(401).json({ message: 'No token was found' });
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const newToken = jwt.sign({ id: decoded.id }, process.env.JWT_SECRET, { expiresIn: 5 * 60 });
+    res.cookie('jwt', newToken, { httpOnly: true, maxAge: 5 * 60 * 1000 });
+    req.user = decoded;
+    next();
+  } catch (err) {
+    return res.status(401).json({ message: 'Token expired or invalid' });
+  }
+}
+
 const saveUser = async (request, response, next) => {
   try {
     const { username, email, password } = request.body;
@@ -25,5 +41,5 @@ const saveUser = async (request, response, next) => {
 };
 
 module.exports = {
-  saveUser,
+  saveUser, checkToken,
 };
