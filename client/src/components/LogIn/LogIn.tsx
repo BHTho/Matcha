@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import './LogIn.css';
 
-function LogIn() {
+
+type LogInProps = {
+    onToggle?: () => void;
+};
+
+function LogIn({ onToggle }: LogInProps) {
 
     const[form, setForm] = useState({
         username: '',
@@ -75,7 +80,11 @@ function LogIn() {
                 {error && <div style={{color: 'red'}}>{error}</div>}
                 {success && <div style={{color: 'green'}}>{success}</div>}
             </form>
-            <a className="register-link" href="/register">Don't have an account? Create one!</a>
+            {/* <a className="register-link" href="/register">Don't have an account? Create one!</a> */}
+            <a className="register-link" href="#" onClick={e => { e.preventDefault(); onToggle && onToggle(); }}>
+                Don't have an account? Create one!
+            </a>
+        
         </div>
     );
 }

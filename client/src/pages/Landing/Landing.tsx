@@ -54,9 +54,9 @@ function Landing() {
             />
 
             {showLogin ? (
-            <LogIn onLogin={handleLogin} />
+            <LogIn onLogin={handleLogin} onToggle = {() => setShowLogin(false)}/>
             ) : (
-            <RegistrationForm onRegister={handleRegister} />
+            <RegistrationForm onRegister={handleRegister} onToggle = {() => setShowLogin(true)} />
             )}
         </div>
 

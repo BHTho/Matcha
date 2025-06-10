@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import './RegistrationForm.css';
 
-function RegistrationForm() {
+type RegistrationFormProps = {
+    onToggle?: () => void;
+};
 
+function RegistrationForm({ onToggle }: RegistrationFormProps) 
+{
     const [form, setForm] = useState({
         username: '',
         email: '',
@@ -85,7 +89,9 @@ function RegistrationForm() {
                 <button className="sign" type="submit">Sign up</button>
                 {error && <div style={{color: 'red'}}>{error}</div>}
                 {success && <div style={{color: 'green'}}>{success}</div>}
-                <a className="login-link" href="/landing">Already have an account? Log in</a>
+                <a className="login-link" href="#" onClick={e => { e.preventDefault(); onToggle && onToggle(); }}>
+                Already have an account? Log in.
+                </a>
             </form>
         </div>
     );

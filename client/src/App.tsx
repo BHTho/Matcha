@@ -2,8 +2,6 @@
 import './App.css'
 // import {useState, useEffect} from 'react';
 import Header from './components/Header/Header';
-import LogIn from './components/LogIn/LogIn';
-import Register from './pages/Register/Register';
 import Landing from './pages/Landing/Landing';
 import Explore from './pages/Explore/Explore';
 import MessagePage from './pages/Messages/Messages';
@@ -25,7 +23,6 @@ function App() {
 		<Header />
 		<Routes>
 			<Route path="/" element={<Landing />}/>
-			<Route path="/register" element={<Register />}/>
 			<Route path="/explore" element={<Explore />}/>
 			<Route path="/messages" element={<MessagePage />}/>
 			<Route path="/profile" element={<Profile />}/>
