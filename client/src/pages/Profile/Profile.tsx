@@ -1,14 +1,14 @@
 import styles from './Profile.module.css';
 import PageParentDiv from '../../components/PageParentDiv/PageParentDiv';
 import dummyUser from '../../data/profileData/';
-import ProfileImgStack from '../../components/ProfileImgStack/ProfileImgStack';
+import Carousel from '../../components/Carousel/Carousel';
 
 
 function Profile() {
     return (
         <PageParentDiv>
             <div className={styles.ProfileParent}>
-                <ProfileImgStack userData={dummyUser}/>
+                <Carousel userData={dummyUser}/>
                 <div className={styles[dummyUser.status]}></div>
                 <div className={styles.ProfileTags}>
                     {dummyUser.tags.map((tag: string) => {
