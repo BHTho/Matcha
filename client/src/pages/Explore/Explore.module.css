@@ -30,7 +30,7 @@ button > img {
     height:40px;
 }
 
-button {
+.decisionBar > button {
     background-color: white;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -43,10 +43,10 @@ button {
     transform: translate(0, 10%);
 }
 
-button:hover {
+.decisionBar > button:hover {
     transform: scale(120%);
 }
 
-button:active {
+.decisionBar > button:active {
     transform: scale(70%);
 }
