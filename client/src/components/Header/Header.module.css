@@ -5,7 +5,7 @@ ul {
     justify-content: space-around;
 }
 
-img {
+.headerLogo {
     height: 70px;
     min-width: 30px;
     object-fit: contain;

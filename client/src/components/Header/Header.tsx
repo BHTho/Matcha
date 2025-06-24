@@ -7,7 +7,7 @@ function Header() {
         <nav className={styles.Header}>
             <ul>
                 <li>
-                    <NavLink to="/"><img src="MatchaLogo.svg" alt="matchalogo"/></NavLink>
+                    <NavLink to="/"><img src="MatchaLogo.svg" alt="matchalogo" className={styles.headerLogo}/></NavLink>
                 </li>
                 <li>
                     <NavLink to="/explore">Explore</NavLink>
